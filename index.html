@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hyrule Campaign Hub — DM Vault</title>
+  <title>Hyrule Campaign Hub — Five Acts</title>
   <style>
     :root {
       --navy: #0c1a2e;
@@ -12,11 +12,8 @@
       --gold-light: #f0d78c;
       --cream: #f7f1e3;
       --green: #2d5a3d;
-      --red: #8b2e2e;
     }
-
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
     body {
       font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
       background: var(--navy);
@@ -24,137 +21,78 @@
       line-height: 1.55;
       min-height: 100vh;
     }
-
     header {
       background: linear-gradient(180deg, #061018 0%, var(--navy) 100%);
       border-bottom: 3px solid var(--gold);
       padding: 2.5rem 1.5rem 2rem;
       text-align: center;
     }
-
     header h1 {
       font-size: clamp(1.8rem, 5vw, 2.8rem);
       color: var(--gold);
       letter-spacing: 0.04em;
       margin-bottom: 0.4rem;
     }
-
-    header p {
-      color: var(--gold-light);
-      opacity: 0.9;
-      font-size: 1.05rem;
-    }
-
+    header p { color: var(--gold-light); opacity: 0.9; font-size: 1.05rem; }
     nav {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.6rem;
-      padding: 1.2rem 1rem;
-      background: var(--navy-light);
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem;
+      padding: 1.2rem 1rem; background: var(--navy-light);
       border-bottom: 1px solid rgba(212, 168, 75, 0.25);
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      position: sticky; top: 0; z-index: 100;
     }
-
     nav a {
-      color: var(--gold-light);
-      text-decoration: none;
-      padding: 0.45rem 0.9rem;
-      border: 1px solid transparent;
-      border-radius: 4px;
-      font-size: 0.92rem;
-      transition: all 0.15s;
+      color: var(--gold-light); text-decoration: none;
+      padding: 0.45rem 0.9rem; border: 1px solid transparent;
+      border-radius: 4px; font-size: 0.92rem; transition: all 0.15s;
     }
-
     nav a:hover {
       border-color: var(--gold);
       background: rgba(212, 168, 75, 0.12);
       color: var(--gold);
     }
-
-    main {
-      max-width: 920px;
-      margin: 0 auto;
-      padding: 2rem 1.25rem 4rem;
-    }
-
-    section {
-      margin-bottom: 3.2rem;
-      scroll-margin-top: 70px;
-    }
-
+    main { max-width: 920px; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+    section { margin-bottom: 3.2rem; scroll-margin-top: 70px; }
     h2 {
-      color: var(--gold);
-      font-size: 1.55rem;
+      color: var(--gold); font-size: 1.55rem;
       border-bottom: 2px solid rgba(212, 168, 75, 0.4);
-      padding-bottom: 0.45rem;
-      margin-bottom: 1.1rem;
+      padding-bottom: 0.45rem; margin-bottom: 1.1rem;
     }
-
-    h3 {
-      color: var(--gold-light);
-      font-size: 1.15rem;
-      margin: 1.4rem 0 0.5rem;
-    }
-
+    h3 { color: var(--gold-light); font-size: 1.15rem; margin: 1.4rem 0 0.5rem; }
     p, li { margin-bottom: 0.55rem; }
-
     ul { padding-left: 1.35rem; }
-
     .card {
       background: var(--navy-light);
       border: 1px solid rgba(212, 168, 75, 0.28);
-      border-radius: 8px;
-      padding: 1.1rem 1.25rem;
-      margin-bottom: 1rem;
+      border-radius: 8px; padding: 1.1rem 1.25rem; margin-bottom: 1rem;
     }
-
     .card strong { color: var(--gold-light); }
-
-    .tag {
-      display: inline-block;
-      background: rgba(212, 168, 75, 0.15);
-      color: var(--gold);
-      font-size: 0.78rem;
-      padding: 0.15rem 0.5rem;
-      border-radius: 3px;
-      margin-right: 0.35rem;
-      margin-bottom: 0.25rem;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 1rem;
-    }
-
     .act {
       border-left: 4px solid var(--gold);
-      padding-left: 1rem;
-      margin-bottom: 1.3rem;
+      padding-left: 1rem; margin-bottom: 1.6rem;
     }
-
     .act h3 { margin-top: 0; color: var(--gold); }
-
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      border-top: 1px solid rgba(212, 168, 75, 0.25);
-      color: rgba(247, 241, 227, 0.55);
-      font-size: 0.9rem;
+    .meta { font-size: 0.85rem; color: rgba(247,241,227,0.65); margin-bottom: 0.4rem; }
+    .scene {
+      background: rgba(12,26,46,0.6);
+      border: 1px solid rgba(212,168,75,0.15);
+      border-radius: 6px; padding: 0.85rem 1rem; margin: 0.7rem 0;
     }
-
+    .scene h4 { color: var(--gold-light); font-size: 1rem; margin-bottom: 0.35rem; }
+    .read-aloud {
+      font-style: italic; color: rgba(247,241,227,0.88);
+      border-left: 2px solid rgba(212,168,75,0.35);
+      padding-left: 0.75rem; margin: 0.5rem 0;
+    }
     .note {
       background: rgba(45, 90, 61, 0.25);
       border: 1px solid rgba(45, 90, 61, 0.5);
-      border-radius: 6px;
-      padding: 0.9rem 1.1rem;
-      margin: 1.2rem 0;
-      font-size: 0.95rem;
+      border-radius: 6px; padding: 0.9rem 1.1rem; margin: 1.2rem 0; font-size: 0.95rem;
     }
-
+    footer {
+      text-align: center; padding: 2rem 1rem;
+      border-top: 1px solid rgba(212, 168, 75, 0.25);
+      color: rgba(247, 241, 227, 0.55); font-size: 0.9rem;
+    }
     @media (max-width: 600px) {
       nav { gap: 0.35rem; }
       nav a { padding: 0.35rem 0.65rem; font-size: 0.85rem; }
@@ -165,163 +103,170 @@
 
 <header>
   <h1>Hyrule Campaign Hub</h1>
-  <p>DM Vault — Five Acts • Master Sword • Fierce Deity • Full Atlas</p>
+  <p>Five Acts · Master Sword · Fierce Deity · The improved spine</p>
 </header>
 
 <nav>
-  <a href="#structure">Campaign Structure</a>
+  <a href="#acts">Five Acts</a>
+  <a href="#act1">I Approach</a>
+  <a href="#act2">II Blade</a>
+  <a href="#act3">III Provinces</a>
+  <a href="#act4">IV Mask</a>
+  <a href="#act5">V Cycle</a>
   <a href="#rules">Core Rules</a>
-  <a href="#sword">Master Sword</a>
-  <a href="#fierce">Fierce Deity</a>
-  <a href="#atlases">Adventure Atlases</a>
-  <a href="#sessions">Sessions &amp; Hooks</a>
-  <a href="#people">Peoples &amp; Bosses</a>
-  <a href="#files">Key Files</a>
 </nav>
 
 <main>
 
-  <!-- STRUCTURE -->
-  <section id="structure">
-    <h2>Campaign Structure — Five Acts</h2>
+<section id="acts">
+  <h2>Campaign Spine — Five Acts</h2>
+  <div class="card">
+    <p>This is the structure that was just written into the app. It replaces the old six-chapter BotW retread.</p>
+    <p><strong>Act I</strong> opens at Wetland Stable (Horn at the Ridge). <strong>Act II</strong> is the Master Sword. <strong>Act III</strong> is provinces + Chamber of Courage. <strong>Act IV</strong> is the Fierce Deity Mask choice. <strong>Act V</strong> is the fused Demon King.</p>
+  </div>
+</section>
 
-    <div class="act">
-      <h3>Act I — Approach</h3>
-      <p>Roads open. Wetland Stable, Emri’s bargain, Red camp, Piece of Heart in the pot. Preferred hook: Temple of Time rebuild + secret room on the Plateau. No Sheikah runner.</p>
-    </div>
+<!-- ACT I -->
+<section id="act1">
+  <div class="act">
+    <p class="meta">Act 1 · Central Hyrule / Wetland · Level 1–2</p>
+    <h3>Approach</h3>
+    <p>Roads open. The party arrives at Wetland Stable, takes Emri's Red-camp bargain, finds a Piece of Heart in the pot, and is pointed toward the Temple of Time rebuild and a secret room on the Plateau.</p>
+    <p><strong>Hook:</strong> Rain on the stable roof. Emri has a job that pays in information and a warm bowl. A Red camp is too close. The pot has something that is not stew.</p>
 
-    <div class="act">
-      <h3>Act II — The Blade</h3>
-      <p>First Light → True + Correcting Cut. Master Sword milestones begin. Tempering and early proving.</p>
+    <div class="scene">
+      <h4>1. Wetland Stable</h4>
+      <p class="read-aloud">The stable is wet wood and warm light. Horses shift. A note sits lower on the board than the others and does not thin. Emri wipes a chip on the counter and does not look up until you speak.</p>
+      <p>Emri offers the Red-camp bargain. The air has not yielded. Extra bowl rim-facing the door. Preferred hook: Temple of Time + secret room. No Sheikah runner.</p>
     </div>
+    <div class="scene">
+      <h4>2. The Red Camp</h4>
+      <p class="read-aloud">Red Bokoblins. A cooking pot. A lookout that is not quite asleep.</p>
+      <p>Clear or scatter. Salvage after. Emri considers the bargain kept if the camp is no longer a problem.</p>
+    </div>
+    <div class="scene">
+      <h4>3. The Pot</h4>
+      <p class="read-aloud">Back at the stable the pot is still going. Something solid sits under the surface that is not potato.</p>
+      <p>Piece of Heart (1 Heart = 4 HP). Emri points to the Plateau when asked.</p>
+    </div>
+    <div class="scene">
+      <h4>4. Road to the Plateau</h4>
+      <p>Act I closes when the party has the Temple of Time hook and a reason to keep moving.</p>
+    </div>
+    <div class="note">DM: Prefer Temple of Time hook. ~2 hours. Fail-forward if the camp goes badly. Sensory stays grounded.</div>
+  </div>
+</section>
 
-    <div class="act">
-      <h3>Act III — Provinces + Upgrades</h3>
-      <p>Domain arcs, Chamber of Courage = Apex proving (Trial of the Triforce). Apex-ready = Stage 2 + chamber and/or upgrades. Latent power of the Master Sword comes last and is required for true Apex.</p>
-    </div>
+<!-- ACT II -->
+<section id="act2">
+  <div class="act">
+    <p class="meta">Act 2 · Central Hyrule · Level 2–4</p>
+    <h3>The Blade</h3>
+    <p>First Light of the Master Sword. Tempering begins. The Correcting Cut is learned the hard way. Latent power is deliberately last.</p>
 
-    <div class="act">
-      <h3>Act IV — The Mask</h3>
-      <p>Mid-act Mask sequence. Fierce Deity advises on absorb vs keep. Absorb locks Fierce Form + absorbed path. Keep leaves the man speaking under ordinary rules.</p>
+    <div class="scene">
+      <h4>1. First Light</h4>
+      <p class="read-aloud">The pedestal is older than the ruin around it. When the right hand closes, the sword does not flare — it settles.</p>
+      <p>Master Sword drawn. First Light active.</p>
     </div>
+    <div class="scene">
+      <h4>2. Tempering Road</h4>
+      <p>Full Tempering can be attempted. Failure is fail-forward: pick up where you left off. Nothing is stripped. Full party may help.</p>
+    </div>
+    <div class="scene">
+      <h4>3. True + Correcting Cut</h4>
+      <p class="read-aloud">There is a cut that finishes cleanly and a cut that finishes the right thing. The sword notices the difference.</p>
+    </div>
+    <div class="note">Use latest Master Sword Improved rules (v91+). Latent power is the Act III→IV threshold material.</div>
+  </div>
+</section>
 
-    <div class="act">
-      <h3>Act V — The Cycle</h3>
-      <p>Final confrontation with the fused Demon King / Demise. Master Sword + Fierce Deity kill conditions apply.</p>
-    </div>
+<!-- ACT III -->
+<section id="act3">
+  <div class="act">
+    <p class="meta">Act 3 · All provinces · Level 4–8</p>
+    <h3>Provinces + Upgrades</h3>
+    <p>Domain arcs, stables, workbenches, color-tier upgrades, Chamber of Courage. Apex-ready = Stage 2 + chamber and/or upgrades. Latent power proven here or at the Mask threshold.</p>
 
-    <div class="note">
-      Fourfold Apex (Master Sword + Four Sword fusion) has been removed by DM ruling. The Master Sword does not fuse with the Four Sword.
+    <div class="scene">
+      <h4>1. Domain Arcs</h4>
+      <p>Long-middle atlas material. Color tiers (Red/Blue/Silver/Gold) and salvage drive growth. Drop-in volumes support; they do not award Apex.</p>
     </div>
-  </section>
+    <div class="scene">
+      <h4>2. Chamber of Courage</h4>
+      <p class="read-aloud">A place that does not care about your title. It cares whether the blade and the hand are ready to be tested together.</p>
+      <p>Apex proving (Trial of the Triforce). Full party may help.</p>
+    </div>
+    <div class="scene">
+      <h4>3. Threshold</h4>
+      <p>Act III ends when the party is Apex-ready or standing where the Mask becomes the next necessary question.</p>
+    </div>
+  </div>
+</section>
 
-  <!-- CORE RULES -->
-  <section id="rules">
-    <h2>Core Rules in Use</h2>
-    <div class="card">
-      <p><strong>Hearts</strong> — 1 Heart = 4 HP. Pieces of Heart and Pieces of Magic track progress.</p>
-      <p><strong>Color Tiers</strong> — Red / Blue / Silver / Gold for gear and enemies.</p>
-      <p><strong>Salvage &amp; Workbenches</strong> — Core economy and upgrade loop.</p>
-      <p><strong>Companion Books</strong> — Separate materials for DM and players.</p>
-    </div>
-  </section>
+<!-- ACT IV -->
+<section id="act4">
+  <div class="act">
+    <p class="meta">Act 4 · Threshold · Level 8–12</p>
+    <h3>The Mask</h3>
+    <p>Fierce Deity Mask is offered. <strong>Absorb</strong> locks Fierce Form + absorbed path (no voice, three silent tells). <strong>Keep</strong> leaves the man speaking under ordinary rules.</p>
 
-  <!-- MASTER SWORD -->
-  <section id="sword">
-    <h2>Master Sword</h2>
-    <div class="card">
-      <p>Latent power is last and required for true Apex.</p>
-      <p>Full Tempering failure = pick up where you left off (nothing is stripped).</p>
-      <p>Full party may help in Full Tempering, Trial of the Sword, and the Chambers. Bearer-locked finals remain Lonk / Eclipse.</p>
-      <p>Act III → IV threshold is the latent proving point.</p>
-      <p>Latest refined rules: <strong>Hyrule_Master_Sword_Improved_v91.pdf</strong> (true 1-page navy/light-gold layout, gold grid tables, fail-forward example, Apex independence table, Fierce Form table, Quick Rules).</p>
+    <div class="scene">
+      <h4>1. The Offering</h4>
+      <p class="read-aloud">The Mask is empty when it is not on a face. The man who once wore what it remembers does not want the title. He will answer to Link if the room is not ending.</p>
+      <p>Run with the Mask absorb companion (latest Improved one-page run-order).</p>
     </div>
-  </section>
+    <div class="scene">
+      <h4>2. Absorb or Keep</h4>
+      <p>Absorb = Fierce Form + silent path. Keep = living corrections, unpaid things, limited intrusions. Choice is permanent texture, not a power-up screen.</p>
+    </div>
+    <div class="scene">
+      <h4>3. After the Choice</h4>
+      <p>Play the consequences. No bond step 4. Blood Moon makes him quieter, not stronger.</p>
+    </div>
+    <div class="note">Use Hyrule_Fierce_Deity.pdf + latest Mask Absorb Improved companion.</div>
+  </div>
+</section>
 
-  <!-- FIERCE DEITY -->
-  <section id="fierce">
-    <h2>Fierce Deity (Link of the Eye)</h2>
-    <div class="card">
-      <p>Half-Hylian, half-Sheikah. DM ancestor. Hates the title. Lost because he took the duel while Ganondorf kept the war. Told the princess’s grandmother the bloodline secret.</p>
-      <p><strong>Private cast:</strong> mother Ien of the Eye, father Calden, aunt Vessa (cut the blank mask), page Pim, weaver Mara.</p>
-      <p><strong>Want under the want:</strong> be called Link in a room that is not ending.</p>
-      <p><strong>Kept path:</strong> 3 intrusions / session. <strong>Absorbed path:</strong> no voice, three silent tells only.</p>
-      <p>Latest Mask absorb companion: <strong>Hyrule_Fierce_Deity_Mask_Absorb_Improved_v88.pdf</strong> (one-page offering run-order table with numbered priority).</p>
-      <p>Main handout: <strong>Hyrule_Fierce_Deity.pdf</strong> (living corrections, unpaid things, session strip, etc.).</p>
-    </div>
-  </section>
+<!-- ACT V -->
+<section id="act5">
+  <div class="act">
+    <p class="meta">Act 5 · Castle / final ground · Level 12–20+</p>
+    <h3>The Cycle</h3>
+    <p>Fused Demon King / Demise. Three phases. Legendary + lair + optional mythic. Master Sword and Fierce Deity kill conditions apply.</p>
 
-  <!-- ATLASES -->
-  <section id="atlases">
-    <h2>Adventure Atlases</h2>
-    <div class="grid">
-      <div class="card">
-        <strong>Vol 1</strong> — Core atlas: six frames, province seeds, 40 side quests, shrines, villain clocks, NPC cast, five-session opening arc.
-      </div>
-      <div class="card">
-        <strong>Vol 2</strong> — Long middle: festivals, 14 stables, six domain arcs, sessions 6–10, quests 41–80.
-      </div>
-      <div class="card">
-        <strong>Vol 3</strong> — Late atlas: sessions 11–20, quests 81–120, sky isles, Depths, Blood Moon, weather.
-      </div>
-      <div class="card">
-        <strong>Vol 4</strong> — Aftermath: sessions 21–30, caves, rivals, Year Two, Warm Door one-shot.
-      </div>
-      <div class="card">
-        <strong>Vols 5–31</strong> — Drop-in atlases (“The Unmarked Roads”, “The Country Still Speaking”, “The Posts Remember” … through “The Looms Keep”). Modular sessions 31–300+. None of these award Master Sword Apex.
-      </div>
+    <div class="scene">
+      <h4>1. Approach the Wound</h4>
+      <p class="read-aloud">Pink fire that is not fire. A throne that has been occupied too long.</p>
     </div>
-  </section>
+    <div class="scene">
+      <h4>2. The Fuse</h4>
+      <p>Scores climb toward hard cap 60. Full fusion: AC 32, 1000 HP (250 Hearts), extreme DCs. Use the Demon King handout.</p>
+    </div>
+    <div class="scene">
+      <h4>3. Kill Conditions</h4>
+      <p>Master Sword latent truth + Fierce Deity presence (or absence). The ending should feel like five acts of decisions, not one lucky roll.</p>
+    </div>
+    <div class="note">Fourfold Apex (Master Sword + Four Sword) is removed by DM ruling.</div>
+  </div>
+</section>
 
-  <!-- SESSIONS -->
-  <section id="sessions">
-    <h2>Session 1 &amp; Early Hooks</h2>
-    <div class="card">
-      <p><strong>Session 1 — Horn at the Ridge</strong> (~2 hours)</p>
-      <ul>
-        <li>Wetland Stable</li>
-        <li>Emri’s Red-camp bargain</li>
-        <li>Piece of Heart in the pot</li>
-        <li>Preferred hook: Temple of Time rebuild + secret room on the Plateau</li>
-        <li>No Sheikah runner</li>
-      </ul>
-      <p>Many refined versions exist (v1–v99+). Use the densest ready-to-run version that matches your preferred sensory density.</p>
-    </div>
-  </section>
-
-  <!-- PEOPLES & BOSSES -->
-  <section id="people">
-    <h2>Peoples &amp; Final Boss</h2>
-    <div class="card">
-      <p><strong>Demon People</strong> — Custom homebrew: red scaled skin, transforming tail weapon (dagger → greataxe), 40 ft flight, fire resistance, Blood Moon Surge. Balanced version of player request.</p>
-      <p><strong>Demon King (fused Ganondorf / Demise)</strong> — Level 100 final boss. Ability scores scale from base (STR 22 / DEX 20 / CON 21 / mental 20) to hard cap 60 when fully fused. Full fusion: AC 32, +33 to hit/saves, DC 41/43, 1000 HP (250 Hearts), three phases + legendary + lair + optional mythic. Triforce of Power + Demise’s Eternal Hatred. Master Sword / Fierce Deity kill condition.</p>
-    </div>
-  </section>
-
-  <!-- KEY FILES -->
-  <section id="files">
-    <h2>Key Current Files (in your artifacts folder)</h2>
-    <div class="card">
-      <p><span class="tag">Structure</span> Hyrule_Campaign_Outline.pdf</p>
-      <p><span class="tag">Sword</span> Hyrule_Master_Sword_Improved_v91.pdf</p>
-      <p><span class="tag">Mask</span> Hyrule_Fierce_Deity_Mask_Absorb_Improved_v88.pdf</p>
-      <p><span class="tag">Fierce Deity</span> Hyrule_Fierce_Deity.pdf</p>
-      <p><span class="tag">Boss</span> Hyrule_Demon_King.pdf + character sheets</p>
-      <p><span class="tag">People</span> Hyrule_Demon_People.pdf</p>
-      <p><span class="tag">Bestiary</span> Hyrule_Bestiary.pdf</p>
-      <p><span class="tag">Session 1</span> Latest Horn_at_the_Ridge_Improved version</p>
-      <p><span class="tag">Atlases</span> Hyrule_Campaign_Ideas.pdf through Vol31+</p>
-    </div>
-    <div class="note">
-      There are 600+ PDF iterations in the project folder. This hub points to the current “latest refined” versions from project memory. Always prefer the highest version number of any given document when running.
-    </div>
-  </section>
+<section id="rules">
+  <h2>Core Rules (aligned)</h2>
+  <div class="card">
+    <p><strong>Hearts</strong> — 1 Heart = 4 HP. Pieces of Heart track progress.</p>
+    <p><strong>Color Tiers</strong> — Red / Blue / Silver / Gold for gear and enemies.</p>
+    <p><strong>Salvage &amp; Workbenches</strong> — Upgrade loop through the provinces.</p>
+    <p><strong>Master Sword</strong> — Latent last; fail-forward on Full Tempering; party may help in chambers.</p>
+    <p><strong>Fierce Deity</strong> — Absorb vs Keep; absorbed path has no voice.</p>
+  </div>
+</section>
 
 </main>
 
 <footer>
-  Hyrule Campaign Hub — private DM vault<br />
-  Built for the five-act campaign. All content is original homebrew for this table.
+  Improved five-act spine · visible version of what was pushed into MyZeldaDnD<br />
+  Private app repo still holds the full interactive Codex; this page is the readable spine.
 </footer>
 
 </body>
